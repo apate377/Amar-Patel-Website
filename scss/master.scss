@@ -1,0 +1,421 @@
+$grayColor: #3b3b3b;
+$whiteColor: #f7f7f7;
+$redColor: #db5192;
+$yellowColor: #ffcc57;
+$grad1Height: 100vh;
+$displayHeight: 100vh;
+$backgroundHeight: 40vh;
+$softwareElements: 2;
+$hardwareElements: 1;
+$aboutmeHeight: 100vh;
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  /*border: 3px solid black;*/
+  scroll-behavior: smooth;
+}
+html, body{
+  height: 100%;
+}
+@import 'mixins';
+
+//menu
+.menu{
+  position:fixed;
+  left: 88%;
+  width: 12%;
+  height: 100vh;
+  background-color: $whiteColor;
+  text-align: center;
+  @include screenXL{
+    width: 14%;
+    left: 86%;
+  }
+  @include screenM{
+    width: 16%;
+    left: 84%;
+  }
+  ul {
+    margin-top: 25vh;
+    width: auto;
+    height: auto;
+    li{
+      list-style: none;
+      height: 15vh;
+      text-align: center;
+      a{
+        text-decoration: none;
+        border-radius: 15px ;
+        font-size: 150%;
+        color: $grayColor;
+        padding: 10px 30px;
+        transition-property: background-color;
+        transition-duration: .5s;
+        @include screenL{
+          font-size: 130%;
+          padding: 10px 20px;
+        }
+        @include screenM{
+          font-size: 115%;
+          padding: 10px;
+        }
+        @include screenS{
+          font-size: 110%;
+          padding: 10px;
+        }
+      }
+      a:hover{
+        background-color: $grayColor;
+        color: $whiteColor;
+      }
+      .btn1{
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: .2s;
+      }
+      .btn2{
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: .4s;
+      }
+      .btn3{
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: .6s;
+      }
+      .btn4{
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: .8s;
+      }
+    }
+  }
+}
+// toggle MENU
+.menubtn{
+  margin-top:30px;
+  font-size: 120%;
+}
+.toggle-btn{
+  display:none;
+}
+@include screenS{
+  .toggle-btn-visible{
+    display: contents;
+  }
+  .toggle-target-hidden{
+    display:none;
+  }
+  .toggle-target-expanded{
+    display:contents;
+  }
+}
+//end of menu
+
+// first section
+.home{
+  height: $grad1Height;
+  .logo{
+    width: 43%;
+    float:left;
+    background-color: $grayColor;
+    height: 100%;
+    text-align: center;
+    @include screenXL{
+      width: 42%;
+    }
+    @include screenM{
+      width: 41%;
+    }
+    img{
+      max-width: 75%;
+      margin-top: 40vh;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+  }
+  .welcome{
+    width: 43%;
+    float: left;
+    background-color: $whiteColor;
+    height: 100%;
+    color: $grayColor;
+    @include screenXL{
+      width: 42%;
+    }
+    @include screenM{
+      width: 41%;
+    }
+    p{
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      margin-left:5%;
+      margin-right: 5%;
+      font-size: 200%;
+      @include screenM{
+        font-size: 170%;
+      }
+      @include screenS{
+        font-size: 150%;
+      }
+    }
+    h1{
+      margin-top:38vh;
+      margin-left:5%;
+      margin-right: 5%;
+      font-size: 400%;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      @include screenM{
+        font-size: 350%;
+      }
+      @include screenS{
+        font-size: 300%;
+      }
+    }
+  }
+}
+//end of first section
+
+
+
+//All Gradients and general purpose stuff
+.gradient{
+  width: 2%;
+  height: $grad1Height;
+  float: left;
+  background-image: repeating-linear-gradient(to bottom, #DB5192 0vh, #FFCC57 100vh, #DB5192 200vh);
+}
+.gradient2{
+  width: 2%;
+  position: absolute;
+  left: 86%;
+  @include screenXL{
+    left: 84%;
+  }
+  @include screenM{
+    left: 82%;
+  }
+  top: $grad1Height + $backgroundHeight;
+  height: $softwareElements* $displayHeight;
+  background-image: repeating-linear-gradient(to bottom, #DB5192 0vh, #FFCC57 100vh, #DB5192 200vh);
+  @include screenS{
+    opacity: 0;
+  }
+}
+.gradient3{
+  width: 2%;
+  position: absolute;
+  left: 86%;
+  @include screenXL{
+    left: 84%;
+  }
+  @include screenM{
+    left: 82%;
+  }
+  top: $grad1Height + $backgroundHeight + $softwareElements* $displayHeight + $backgroundHeight;
+  height: $hardwareElements * $displayHeight;
+  background-image: repeating-linear-gradient(to bottom, #DB5192 0vh, #FFCC57 100vh, #DB5192 200vh);
+  @include screenS{
+    opacity: 0;
+  }
+}
+.gradient4{
+  width: 2%;
+  position: absolute;
+  left: 86%;
+  @include screenXL{
+    left: 84%;
+  }
+  @include screenM{
+    left: 82%;
+  }
+  top: $grad1Height + $backgroundHeight + $softwareElements* $displayHeight + $backgroundHeight + $hardwareElements * $displayHeight + $backgroundHeight;
+  height: $aboutmeHeight;
+  background-image: repeating-linear-gradient(to bottom, #DB5192 0vh, #FFCC57 100vh, #DB5192 200vh);
+  @include screenS{
+    opacity: 0;
+  }
+}
+.gradient5{
+  width: 2%;
+  position: absolute;
+  left: 82%;
+  top: 140vh;
+  opacity: 0;
+  height:500vh;
+
+  background-image: repeating-linear-gradient(to bottom, #DB5192 0vh, #FFCC57 100vh, #DB5192 200vh);
+  @include screenS{
+    opacity: 1;
+  }
+}
+.background{
+  width:100%;
+  height: $backgroundHeight;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.background1{
+  background-image: url(../images/background1.png);
+}
+.background2{
+  background-image: url(../images/background2.jpg);
+}
+.background3{
+  background-image: url(../images/background3.jpg);
+}
+
+//software and hardware
+.display{
+  width: 60%;
+  height: $displayHeight;
+  background-color: $grayColor;
+  float:left;
+  text-align: center;
+  @include screenXL{
+    width: 59%;
+  }
+  @include screenM{
+    width: 58%;
+  }
+  @include screenS{
+    float: none;
+    width: 82%;
+    height: auto;
+  }
+  video{
+    max-width:90%;
+    margin-top: 30px;
+  }
+  h1{
+    font-size: 300%;
+    text-decoration: underline;
+    color: $whiteColor;
+    margin-top: 30px;
+    @include screenS{
+      margin-top: 0px;
+      padding-top: 30px;
+    }
+  }
+  h2{
+    font-size: 250%;
+    text-decoration: underline;
+    color: $whiteColor;
+    margin-top: 30px;
+    @include screenS{
+      margin-top: 0px;
+      padding-top: 30px;
+    }
+  }
+}
+.content{
+  width: 26%;
+  height: $displayHeight;
+  background-color: $grayColor;
+  float:left;
+  text-align: center;
+  color: $whiteColor;
+  @include screenXL{
+    width: 25%;
+  }
+  @include screenM{
+    width: 24%;
+  }
+  @include screenS{
+    width: 82%;
+    float: none;
+    height: auto;
+  }
+  h1{
+    font-size: 200%;
+    margin-top: 30px;
+  }
+  .skills{
+    margin-top: 100px;
+    @include screenS {
+      margin-top: 0px;
+      padding-top: 30px;
+    }
+  }
+  .top{
+
+  }
+  p{
+    font-size: 100%;
+    margin: 30px 10px 0px 10px;
+  }
+  h2{
+    font-size: 100%;
+    margin-top: 30px;
+    @include screenS{
+      padding-bottom: 30px;
+    }
+    a{
+      text-decoration: none;
+      color: $grayColor;
+      border-radius: 15px;
+      background-color: $yellowColor;
+      padding: 10px 20px;
+    }
+  }
+}
+// end of software and hardware
+
+//about me
+.aboutmedisplay{
+
+  .self{
+    width: 31%;
+    float: left;
+    height: $displayHeight;
+    background-color: $grayColor;
+    text-align: center;
+    @include screenXL{
+      width: 30%;
+    }
+    @include screenM{
+      width: 29%;
+    }
+    img{
+      max-width: 80%;
+      margin-top: 30px;
+    }
+  }
+  .description{
+    width: 55%;
+    height: $displayHeight;
+    float: left;
+    text-align: center;
+    color: $whiteColor;
+    background-color: $grayColor;
+    @include screenXL{
+      width: 54%;
+    }
+    @include screenM{
+      width: 53%;
+    }
+    h1{
+      font-size: 300%;
+      text-decoration: underline;
+      color: $whiteColor;
+      padding-top: 30px;
+    }
+  }
+}
+
+
+//ClearFix
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1;
+}
